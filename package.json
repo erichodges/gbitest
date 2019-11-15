@@ -34,9 +34,8 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
     "serve": "gatsby serve -p9001",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },

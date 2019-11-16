@@ -5,14 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-
-import './layout.css'
-import StyledBackgroundSection from './index'
-import Header from './header'
+import React from 'react'
 import Footer from './footer'
+import Header from './header'
+import StyledBackgroundSection from './index'
+import './layout.css'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -41,7 +40,7 @@ const Layout = ({ children }) => (
               style={{
                 display: `flex`,
                 textAlign: `center`,
-                color: `#ccc`,
+                color: `#fff`,
                 maxWidth: 960,
                 margin: `auto 53% auto auto`,
                 alignItems: `center`,

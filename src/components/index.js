@@ -1,9 +1,8 @@
-import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
-
 import BackgroundImage from 'gatsby-background-image'
+import Img from 'gatsby-image'
+import React from 'react'
+import styled from 'styled-components'
 // Use the following to support legacy browsers like IE11:
 // import BackgroundImage from 'gatsby-background-image-es5'
 import { generateMedia } from 'styled-media-query'
@@ -21,10 +20,10 @@ const BackgroundSection = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query {
-        desktop: file(relativePath: { eq: "seamless-bg-desktop.jpg" }) {
+        desktop: file(relativePath: { eq: "car.png" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            fluid(quality: 90, maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -48,15 +47,18 @@ const BackgroundSection = ({ className, children }) => (
               // You are able to set a classId and style by wrapper (see below or
               // https://github.com/timhagn/gatsby-background-image/#styling--passed-through-styles):
               // classId="gbi"
-              // style={{
-              //   // Defaults are overwrite-able by setting one of the following:
-              //   // backgroundSize: '',
-              //   // backgroundPosition: '',
-              //   // backgroundRepeat: '',
-              // }}
+              style={{
+                // Defaults are overwrite-able by setting one of the following:
+                position: 'absolute',
+                backgroundSize: 'cover',
+                backgroundPosition: '50% 50%',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '100vh',
+                width: '100vw',
+              }}
               // To "force" the classic fading in of every image (especially on
               // imageData change for fluid / fixed) by setting `soft` on `fadeIn`:
-              // fadeIn={`soft`}
+              fadeIn={`soft`}
               // To be able to use stacking context changing elements yourself,
               // set this to true to disable the "opacity hack":
               // preserveStackingContext={true}
@@ -67,14 +69,6 @@ const BackgroundSection = ({ className, children }) => (
             >
               {children}
             </BackgroundImage>
-          </StyledSymetryWrapper>
-          <StyledSymetryWrapper>
-            <StyledWelcomeImage
-              fluid={imageData}
-              backgroundColor={`#040e18`}
-              objectFit="cover"
-              objectPosition="50% 50%"
-            />
           </StyledSymetryWrapper>
         </StyledWrapper>
       )
